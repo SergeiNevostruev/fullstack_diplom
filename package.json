@@ -5,15 +5,20 @@
   "author": "Nevostruev Sergey <sergnevo@rambler.ru>",
   "license": "MIT",
   "scripts": {
-    "development": "nodemon"
+    "development": "nodemon",
+    "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
+    "start": "NODE_ENV=production node ./dist/server.generated.js"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.8",
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.3",
+    "file-loader": "^6.2.0",
     "webpack": "^5.66.0",
     "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.3",
+    "webpack-hot-middleware": "^2.25.1",
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
