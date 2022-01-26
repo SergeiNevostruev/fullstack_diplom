@@ -1,7 +1,7 @@
-import User from '../models/user.model'
+import User from '../models/user.model.js'
 import jwt from 'jsonwebtoken'
 import expressJwt from 'express-jwt'
-import config from './../../config/config'
+import config from './../../config/config.js'
 
 
 
@@ -34,7 +34,7 @@ const signin = async (req, res) => {
 
 
 const signout = (req, res) => {
-  res.clearCookie("t");
+  res.clearCookie("t",{ expire: new Date() + 9999 });
   return res.status("200").json({
     message: "signed out",
   });
@@ -55,6 +55,7 @@ const hasAuthorization = (req, res, next) => {
       error: "User is not authorized",
     });
   }
+  next()
 };
 
 

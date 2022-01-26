@@ -1,21 +1,22 @@
 import { createTheme } from "@mui/material/styles";
 import { pink } from "@mui/material/colors";
 
+
 const theme = createTheme({
   typography: {
     useNextVariants: true,
   },
   palette: {
     primary: {
-      light: "#5c67a3",
-      main: "#3f4771",
-      dark: "#2e355b",
-      contrastText: "#fff",
+      light: "#b2fef7",
+      main: "#80cbc4",
+      dark: "#4f9a94",
+      contrastText: "#00695c",
     },
     secondary: {
-      light: "#ff79b0",
-      main: "#ff4081",
-      dark: "#c60055",
+      light: "#ffc1e3",
+      main: "#f48fb1",
+      dark: "#bf5f82",
       contrastText: "#000",
     },
     openTitle: "#3f4771",

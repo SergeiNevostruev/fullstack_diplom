@@ -1,6 +1,6 @@
 import express from "express";
-import userCtrl from "../controllers/user.controller"
-import authCtrl from '../controllers/auth.controller'
+import userCtrl from "../controllers/user.controller.js"
+import authCtrl from '../controllers/auth.controller.js'
 
 const router = express.Router();
 
@@ -8,11 +8,15 @@ const router = express.Router();
 
 router.param("userId", userCtrl.userByID);
 
-router.route("/api/users/:userId")
-  .get(authCtrl.requireSignin, userCtrl.read)
-  .put(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.update)
-  .delete(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.remove);
-  
+router.route("/api/users/:userId").get(authCtrl.requireSignin, userCtrl.read)
+router.route("/api/users/:userId").put(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.update)
+router.route("/api/users/:userId").delete(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.remove);
+
+// router.route("/api/users/:userId").put(authCtrl.requireSignin, authCtrl.hasAuthorization,(req,res)=>{
+//     console.log(req.params)
+//     res.send({put:true})
+// })
+
 router.route("/api/users").get(userCtrl.list)
 
 router.route('/api/users').post(userCtrl.create)

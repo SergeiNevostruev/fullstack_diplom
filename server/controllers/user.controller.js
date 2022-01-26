@@ -1,6 +1,6 @@
-import User from '../models/user.model'
-// import extend from 'lodash/extend'
-// import errorHandler from './error.controller'
+import User from '../models/user.model.js'
+import extend from 'extend'
+import errorHandler from '../helpers/dbErrorHandler.js'
 
 
 const create = async (req, res) => {
@@ -51,8 +51,11 @@ const read = (req, res) => {
 
 const update = async (req, res) => {
   try {
+    console.log(req.params);
+    console.log(req.profile);
     let user = req.profile;
     user = extend(user, req.body);
+
     user.updated = Date.now();
     await user.save();
     user.hashed_password = undefined;

@@ -21,6 +21,7 @@ const list = async (signal) => {
       method: "GET",
       signal: signal,
     });
+    console.log(response);
     return await response.json();
   } catch (err) {
     console.log(err);
@@ -38,6 +39,7 @@ const read = async (params, credentials, signal) => {
         Authorization: "Bearer " + credentials.t,
       },
     });
+    // console.log(response.json());
     return await response.json();
   } catch (err) {
     console.log(err);
