@@ -96,6 +96,7 @@ console.log(user);
             }
           </ListItem>
           <Divider/>
+          <ListItem> <ListItemText primary={user.about}/> </ListItem>
           <ListItem>
             <ListItemText primary={"Joined: " + (
               new Date(user.created)).toDateString()}/>

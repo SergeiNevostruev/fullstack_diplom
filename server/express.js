@@ -1,4 +1,5 @@
 import express from 'express'
+import path from 'path'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import compress from 'compression'
@@ -7,7 +8,10 @@ import helmet from 'helmet'
 import Template from './../template.js'
 import userRoutes from './routes/user.routes.js'
 import authRoutes from './routes/auth.routes.js'
+import postRoutes from './routes/post.routes.js'
 
+
+const CURRENT_WORKING_DIR = process.cwd()
 const app = express()
 
 
@@ -18,8 +22,11 @@ app.use(compress())
 app.use(helmet())
 app.use(cors())
 
+// app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
+
 app.use('/', authRoutes)
 app.use('/', userRoutes)
+app.use('/', postRoutes)
 
 app.get('/', (req, res) => {
     res.status(200).send(Template())

@@ -5,17 +5,10 @@ import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongoUri, {
   useNewUrlParser: true,
-  // useCreateIndex: true,
-  // useUnifiedTopology: true,
 });
 mongoose.connection.on("error", () => {
   throw new Error(`unable to connect to database: ${mongoUri}`);
 });
-
-// mongoose
-//   .connect(config.mongoUri, { useNewUrlParser: true })
-//   .catch((e) => console.log(e));
-
 
 app.listen(config.port, (err) => {
   if (err) {

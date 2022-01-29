@@ -1,34 +1,43 @@
-import mongoose from 'mongoose'
-import crypto from 'crypto'
+import mongoose from "mongoose";
+import crypto from "crypto";
 
+const UserSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    trim: true,
+    required: "Name is required",
+  },
+  email: {
+    type: String,
+    trim: true,
+    unique: "Email already exists",
+    match: [/.+\@.+\..+/, "Please fill a valid email address"],
+    required: "Email is required",
+  },
+  hashed_password: {
+    type: String,
+    required: "Password is required",
+  },
+  created: {
+    type: Date,
+    default: Date.now,
+  },
+  updated: Date,
+  salt: String,
+  about: {
+    type: String,
+    trim: true,
+  },
+  photo: {
+    data: Buffer,
+    contentType: String
+  },
+  following: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
+  followers: [{type: mongoose.Schema.ObjectId, ref: 'User'}]
+});
 
-const UserSchema = new mongoose.Schema({ 
-    name: {
-        type: String,
-        trim: true,
-        required: 'Name is required'
-        },
-    email: {
-        type: String,
-        trim: true,
-        unique: 'Email already exists',
-        match: [/.+\@.+\..+/, 'Please fill a valid email address'],
-        required: 'Email is required'
-    },
-    created: {
-        type: Date,
-        default: Date.now
-        },
-    updated: Date,
-    hashed_password: {
-        type: String,
-        required: "Password is required"
-        },
-    salt: String
-            
-})
-
-UserSchema.virtual("password")
+UserSchema
+  .virtual("password")
   .set(function (password) {
     this._password = password;
     this.salt = this.makeSalt();
@@ -37,7 +46,6 @@ UserSchema.virtual("password")
   .get(function () {
     return this._password;
   });
-
 
 UserSchema.methods = {
   authenticate: function (plainText) {
@@ -68,5 +76,4 @@ UserSchema.path("hashed_password").validate(function (v) {
   }
 }, null);
 
-
-export default mongoose.model('User', UserSchema)
+export default mongoose.model("User", UserSchema);

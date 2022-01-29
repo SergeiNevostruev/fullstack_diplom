@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <Card className={classes.card}>
       <Typography variant="h6" className={classes.title}>
-        Home Page
+        Стена...
       </Typography>
       <CardMedia
         className={classes.media}
@@ -37,7 +37,7 @@ export default function Home() {
       />
       <CardContent>
         <Typography variant="body2" component="p">
-          Welcome to the MERN Skeleton home page.
+          Добро пожаловать ВМатрицу!
         </Typography>
       </CardContent>
     </Card>
