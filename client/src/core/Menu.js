@@ -41,9 +41,12 @@ const Menu = withRouter(({ history, location }) => (
           </Typography>
         </IconButton>
       </Link>
+      
       <Link to="/users">
         <Button style={isActive(location, "/users")}>ПОВСТАНЦЫ</Button>
       </Link>
+
+
       <div> 
         {!auth.isAuthenticated() && (
           <span>

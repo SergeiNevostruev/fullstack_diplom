@@ -17,7 +17,7 @@ const create = (req, res, next) => {
     post.postedBy= req.profile
     if(files.photo){
       post.photo.data = fs.readFileSync(files.photo.filepath)
-      post.photo.contentType = files.photo.type
+      post.photo.contentType = files.photo.mimetype
     }
     try {
       let result = await post.save()

@@ -63,7 +63,7 @@ const update = (req, res) => {
   // let form = new formidable.IncomingForm()
   // let form = new IncomingForm({ multiples: true, keepExtensions: true })  
   // let form = formidable({ multiples: true, keepExtensions: true })
-  console.log(form.parse);
+  // console.log(form.parse);
   // form.keepExtensions = true
 
   // form.parse(req, (err, fields, files) => {
@@ -74,7 +74,7 @@ const update = (req, res) => {
   //   res.json({ fields, files });
   // });
   form.parse(req, async (err, fields, files) => {
-    console.log(fields);
+    // console.log(files);
     if (err) {
       return res.status(400).json({
         error: "Photo could not be uploaded"
@@ -83,17 +83,25 @@ const update = (req, res) => {
     let user = req.profile
     user = extend(user, fields)
     user.updated = Date.now()
-
+    // console.log(user);
     if(files.photo){
-      user.photo.data = fs.readFileSync(files.photo.filepath)
-      user.photo.contentType = files.photo.type
+      // user.photo.data = fs.readFileSync(files.photo.filepath)
+      // user.photo.contentType = files.photo.mimetype
+      user.photo = {
+        data: fs.readFileSync(files.photo.filepath),
+        contentType: files.photo.mimetype
+      }
+      // console.log(user.photo.data)
     }
+    // console.log(user);
     try {
       await user.save()
       user.hashed_password = undefined
       user.salt = undefined
+      // console.log(user);
       res.json(user)
     } catch (err) {
+      console.log(err);
       return res.status(400).json({
         error: errorHandler.getErrorMessage(err)
       })
