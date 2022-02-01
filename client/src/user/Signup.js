@@ -70,6 +70,10 @@ export default function Signup() {
     })
   }
 
+  const handleClose = () => {
+    setValues({ ...values, error: '', open: false})
+  };
+
     return (<div>
       <Card className={classes.card}>
         <CardContent>
@@ -85,7 +89,15 @@ export default function Signup() {
               {values.error}</Typography>)
           }
         </CardContent>
-        <CardActions>
+        <CardActions
+                        sx={{
+                          my: 8,
+                          mx: 4,
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          }}
+        >
           <Button color="primary" variant="contained" onClick={clickSubmit} className={classes.submit}>РЕГИСТРАЦИЯ</Button>
         </CardActions>
       </Card>
@@ -97,9 +109,9 @@ export default function Signup() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Link to="/signin">
-            <Button color="primary" autoFocus="autoFocus" variant="contained">
-              Войти
+          <Link to="/">
+            <Button onClick={handleClose} color="primary" autoFocus="autoFocus" variant="contained">
+              Закрыть             
             </Button>
           </Link>
         </DialogActions>

@@ -64,7 +64,8 @@ export default function Signin(props) {
           setValues({ ...values, error: '',redirectToReferrer: true})
         })
       }
-    })
+    }).then(()=> window.location.reload())
+    
   }
 
   const handleChange = name => event => {
@@ -78,7 +79,7 @@ export default function Signin(props) {
   // }
   const {from} = {
       from: {
-        pathname: '/'
+        pathname: '/home'
       }
   }
 
@@ -103,8 +104,18 @@ export default function Signin(props) {
             </Typography>)
           }
         </CardContent>
-        <CardActions>
-          <Button color="primary" variant="contained" onClick={clickSubmit} className={classes.submit}>Submit</Button>
+        <CardActions
+                        sx={{
+                          my: 8,
+                          mx: 4,
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          }}
+        >
+          <Button color="primary" variant="contained" onClick={clickSubmit} className={classes.submit}>
+            Submit
+            </Button>
         </CardActions>
       </Card>
     )

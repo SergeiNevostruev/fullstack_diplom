@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Profile() {
+export default function Profilem() {
   const match = useParams()
   const classes = useStyles()
 

@@ -1,16 +1,17 @@
 import React, {useState, useEffect} from 'react'
-import {useLocation, useNavigate} from 'react-router-dom'
+// import {useLocation, useNavigate} from 'react-router-dom'
 import { makeStyles } from '@mui/styles'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import Typography from '@mui/material/Typography'
-import unicornbikeImg from './../assets/images/unicornbike.jpg'
+// import Card from '@mui/material/Card'
+// import CardContent from '@mui/material/CardContent'
+// import CardMedia from '@mui/material/CardMedia'
+// import Typography from '@mui/material/Typography'
+// import unicornbikeImg from './../assets/images/unicornbike.jpg'
 import Grid from '@mui/material/Grid'
 import {authenticate, isAuthenticated, clearJWT} from './../auth/auth-helper.js'
 import FindPeople from './../user/FindPeople.js'
 import Newsfeed from './../post/Newsfeed.js'
 import {createMemoryHistory} from 'history'
+// import SignInSide from './../auth/Signin1.js'
 
 const auth = {authenticate, isAuthenticated, clearJWT}
 
@@ -63,61 +64,25 @@ export default function Home(){
   }, [])
 
     return (
-      <div className={classes.root}>
-        {/* { !defaultPage &&
-          <Grid container spacing={8}>
-            <Grid item xs={12}>
-              <Card className={classes.card}>
-                <Typography variant="h6" className={classes.title}>
-                  Home Page
-                </Typography>
-                <CardMedia className={classes.media} image={unicornbikeImg} title="Unicorn Bicycle"/>
-                <Typography variant="body2" component="p" className={classes.credit} color="textSecondary">Photo by <a href="https://unsplash.com/@boudewijn_huysmans" target="_blank" rel="noopener noreferrer">Boudewijn Huysmans</a> on Unsplash</Typography>
-                <CardContent>
-                  <Typography type="body1" component="p">
-                    Welcome to the MERN Social home page. 
-                  </Typography>
-                </CardContent>
-              </Card>
+
+      <div> Это домашняя страница
+        {/* <div>
+          { !defaultPage &&
+            <SignInSide/>
+          }
+        </div>       */}
+        {/* <div className={classes.root}>
+          {defaultPage &&
+            <Grid container spacing={8}>
+              <Grid item xs={8} sm={7}>
+                <Newsfeed/>
+              </Grid>
+              <Grid item xs={6} sm={5}>
+                <FindPeople/>
+              </Grid>
             </Grid>
-          </Grid>
-        } */}
-        {defaultPage &&
-          <Grid container spacing={8}>
-            <Grid item xs={8} sm={7}>
-              <Newsfeed/>
-            </Grid>
-            <Grid item xs={6} sm={5}>
-              <FindPeople/>
-            </Grid>
-          </Grid>
-        }
+          }
+        </div> */}
       </div>
     )
 }
-
-
-
-
-
-
-// export default function Home() {
-//   const classes = useStyles();
-//   return (
-//     <Card className={classes.card}>
-//       <Typography variant="h6" className={classes.title}>
-//         Стена...
-//       </Typography>
-//       <CardMedia
-//         className={classes.media}
-//         image={unicornbikeImg}
-//         title="Unicorn Bicycle"
-//       />
-//       <CardContent>
-//         <Typography variant="body2" component="p">
-//           Добро пожаловать ВМатрицу!
-//         </Typography>
-//       </CardContent>
-//     </Card>
-//   );
-// }

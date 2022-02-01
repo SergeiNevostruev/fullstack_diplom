@@ -20,10 +20,6 @@ import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 const auth = {authenticate, isAuthenticated, clearJWT}
 
 const useStyles = makeStyles(theme => ({
-  // root: theme.mixins.gutters({
-  //   padding: theme.spacing(1),
-  //   margin: 0
-  // }),
     root: {
     padding: theme.spacing(1),
     margin: 0
