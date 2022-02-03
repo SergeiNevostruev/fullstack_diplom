@@ -38,7 +38,7 @@ export default function FollowGrid (props) {
     return (<div className={classes.root}>
 
 <ImageList rowHeight={160} className={classes.gridList} cols={4}>
-  {/* <ImageListItem> */}
+
     {props.people.map((person, i) => {
             return  <ImageListItem style={{'height':120}} key={i}>
                 <Link to={"/user/" + person._id}>
@@ -47,20 +47,8 @@ export default function FollowGrid (props) {
                 </Link>
               </ImageListItem>
           })}
-  {/* </ImageListItem> */}
-</ImageList>
 
-{/* 
-      <GridList cellHeight={160} className={classes.gridList} cols={4}>
-        {props.people.map((person, i) => {
-           return  <GridListTile style={{'height':120}} key={i}>
-              <Link to={"/user/" + person._id}>
-                <Avatar src={'/api/users/photo/'+person._id} className={classes.bigAvatar}/>
-                <Typography className={classes.tileText}>{person.name}</Typography>
-              </Link>
-            </GridListTile>
-        })}
-      </GridList> */}
+</ImageList>
     </div>)
 }
 

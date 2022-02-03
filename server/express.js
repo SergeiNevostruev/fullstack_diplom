@@ -5,10 +5,17 @@ import cookieParser from 'cookie-parser'
 import compress from 'compression'
 import cors from 'cors'
 import helmet from 'helmet'
-import Template from './../template.js'
+// import Template from './../template.js'
 import userRoutes from './routes/user.routes.js'
 import authRoutes from './routes/auth.routes.js'
 import postRoutes from './routes/post.routes.js'
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 
 
 const CURRENT_WORKING_DIR = process.cwd()
@@ -28,9 +35,17 @@ app.use('/', authRoutes)
 app.use('/', userRoutes)
 app.use('/', postRoutes)
 
-app.get('/', (req, res) => {
-    res.status(200).send(Template())
-    })
+
+if (process.env.NODE_ENV === 'production') {
+  app.use('/', express.static(path.join(__dirname, './../client', 'build')))
+
+  app.get('*', (req,res) => {
+    res.sendFile(path.resolve(__dirname,'./../client', 'build', 'index.html'))
+  })
+}
+// app.get('/', (req, res) => {
+//     res.status(200).send(Template())
+//     })
 
 app.use((err, req, res, next) => {
   if (err.name === "UnauthorizedError") {

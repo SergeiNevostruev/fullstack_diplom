@@ -9,7 +9,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary">
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="#">
         ВМатрице
       </Link>{' '}
       {new Date().getFullYear()}
@@ -25,9 +25,10 @@ export default function StickyFooter() {
         display: 'flex',
         flexDirection: 'column',
         minHeight: '100vh',
+        backgroundColor: '#c5cae9',
       }}
     >
-      <CssBaseline />
+      {/* <CssBaseline />
       <Container component="main" sx={{ mt: 8, mb: 2 }} maxWidth="sm">
         <Typography variant="h2" component="h1" gutterBottom>
           Внимание!
@@ -37,7 +38,7 @@ export default function StickyFooter() {
           {'Мы используем куки для Вашего удобства пользования сайтом.'}
         </Typography>
         <Typography variant="body1">Информация для пользователей</Typography>
-      </Container>
+      </Container> */}
       <Box
         component="footer"
         sx={{

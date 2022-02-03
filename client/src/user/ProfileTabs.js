@@ -24,9 +24,9 @@ export default function ProfileTabs ( props ){
             textColor="primary"
             variant="fullWidth"
           >
-            <Tab label="Posts" />
-            <Tab label="Following" />
-            <Tab label="Followers" />
+            <Tab label="Посты" />
+            <Tab label="Подписки" />
+            <Tab label="Подписчики" />
           </Tabs>
         </AppBar>
        {tab === 0 && <TabContainer><PostList removeUpdate={props.removePostUpdate} posts={props.posts}/></TabContainer>}

@@ -50,6 +50,8 @@ export default function Signin(props) {
       redirectToReferrer: false
   })
 
+
+
   const clickSubmit = () => {
     const user = {
       email: values.email || undefined,
@@ -114,7 +116,7 @@ export default function Signin(props) {
                           }}
         >
           <Button color="primary" variant="contained" onClick={clickSubmit} className={classes.submit}>
-            Submit
+            Войти
             </Button>
         </CardActions>
       </Card>

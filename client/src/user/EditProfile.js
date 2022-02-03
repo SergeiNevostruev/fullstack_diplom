@@ -132,7 +132,7 @@ export default function EditProfile() {
       <Card className={classes.card}>
       <CardContent>
         <Typography variant="h6" className={classes.title}>
-          Edit Profile
+          Редактировать профиль
         </Typography>
         <Avatar src={photoUrl} className={classes.bigAvatar} />
         <br />
@@ -148,7 +148,7 @@ export default function EditProfile() {
           variant="contained" 
           // color="default" 
           component="span">
-            Upload
+            Загрузить
             <FileUploadIcon />
           </Button>
         </label>{" "}
@@ -161,7 +161,7 @@ export default function EditProfile() {
         <br />
         <TextField
           id="name"
-          label="Name"
+          label="Имя"
           className={classes.textField}
           value={values.name}
           onChange={handleChange("name")}
@@ -170,7 +170,7 @@ export default function EditProfile() {
         <br />
         <TextField
           id="multiline-flexible"
-          label="About"
+          label="Обо мне"
           multiline
           rows="2"
           value={values.about}
@@ -192,7 +192,7 @@ export default function EditProfile() {
         <TextField
           id="password"
           type="password"
-          label="Password"
+          label="Пароль"
           className={classes.textField}
           value={values.password}
           onChange={handleChange("password")}
@@ -202,7 +202,7 @@ export default function EditProfile() {
         {values.error && (
           <Typography component="p" color="error">
             <Icon color="error" className={classes.error}>
-              error
+              Ошибка
             </Icon>
             {values.error}
           </Typography>
@@ -215,7 +215,7 @@ export default function EditProfile() {
           onClick={clickSubmit}
           className={classes.submit}
         >
-          Submit
+          Отправить
         </Button>
       </CardActions>
     </Card>

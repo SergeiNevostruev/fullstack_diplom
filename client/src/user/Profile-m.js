@@ -150,7 +150,7 @@ const photoUrl = values.user._id
       <Paper className={classes.root} elevation={4}>
 
         <Typography variant="h6" className={classes.title}>
-          Profile
+          Моя страничка
         </Typography>
         <List dense>          
           <ListItem>

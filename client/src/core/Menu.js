@@ -39,9 +39,9 @@ const auth = {authenticate, isAuthenticated, clearJWT}
 
 const isActive = (location, path) => {
   if (location.pathname === path)
-    return {color: '#ff4081'}
+    return {color: '#f48fb1'}
   else
-    return {color: 'rgba(0, 0, 0, 0.54)'}
+    return {color: "#ede7f6"}
 }
 
 const withRouter = Component => props => {
@@ -65,6 +65,7 @@ const withRouter = Component => props => {
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
+  backgroundColor: '#9575cd',
   width: drawerWidth,
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
@@ -74,6 +75,7 @@ const openedMixin = (theme) => ({
 });
 
 const closedMixin = (theme) => ({
+  backgroundColor: '#7e57c2',
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -86,6 +88,7 @@ const closedMixin = (theme) => ({
 });
 
 const DrawerHeader = styled('div')(({ theme }) => ({
+
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
@@ -114,6 +117,7 @@ const AppBar = styled(MuiAppBar, {
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
+  
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',

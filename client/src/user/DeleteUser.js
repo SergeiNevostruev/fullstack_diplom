@@ -52,15 +52,15 @@ export default function DeleteUser() {
         <DialogTitle>{"Delete Account"}</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Confirm to delete your account.
+            Подтвердите удаление аккаунта.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleRequestClose} color="primary">
-            Cancel
+            Отмена
           </Button>
           <Button onClick={deleteAccount} color="secondary" autoFocus="autoFocus">
-            Confirm
+            Подтверждаю
           </Button>
         </DialogActions>
       </Dialog>

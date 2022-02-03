@@ -105,7 +105,7 @@ export default function NewPost (props){
           />
       <CardContent className={classes.cardContent}>
         <TextField
-            placeholder="Share your thoughts ..."
+            placeholder="Написать новый пост ..."
             multiline
             rows="3"
             value={values.text}

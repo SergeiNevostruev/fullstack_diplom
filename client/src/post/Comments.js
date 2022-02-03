@@ -103,7 +103,7 @@ export default function Comments (props) {
                 multiline
                 value={text}
                 onChange={handleChange}
-                placeholder="Write something ..."
+                placeholder="Комментарий ..."
                 className={classes.commentField}
                 margin="normal"
                 />}

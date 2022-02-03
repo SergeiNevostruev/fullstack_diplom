@@ -93,7 +93,7 @@ export default function FindPeople() {
     return (<div>
       <Paper className={classes.root} elevation={4}>
         <Typography type="title" className={classes.title}>
-          Who to follow
+          На кого подписаться
         </Typography>
         <List>
           {values.users.map((item, i) => {
@@ -110,7 +110,7 @@ export default function FindPeople() {
                       </IconButton>
                     </Link>
                     <Button aria-label="Follow" variant="contained" color="primary" onClick={()=> {clickFollow(item, i)}}>
-                      Follow
+                      Подписка
                     </Button>
                   </ListItemSecondaryAction>
                 </ListItem>

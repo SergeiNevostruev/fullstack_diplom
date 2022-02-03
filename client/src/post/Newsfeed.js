@@ -42,6 +42,7 @@ export default function Newsfeed () {
       if (data.error) {
         console.log(data.error)
       } else {
+        console.log(data);
         setPosts(data)
       }
     })
@@ -66,7 +67,7 @@ export default function Newsfeed () {
     return (
       <Card className={classes.card}>
         <Typography type="title" className={classes.title}>
-          Newsfeed
+          Новостная лента
         </Typography>
         <Divider/>
         <NewPost addUpdate={addPost}/>

@@ -36,9 +36,10 @@ const MainRouter = () => {
     <div>
       <Box sx={{ display: "flex" }}>
         <Menu />
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 3, backgroundColor: '#c5cae9' }} >
           <DrawerHeader />
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/news" element={<Newsfeed />} />
             <Route path="/users" element={<Users />} />
@@ -47,9 +48,9 @@ const MainRouter = () => {
             <Route path="/user/home/:userId" element={<Profilem />} />
             <Route path="/user/:userId" element={<Profile />} />
           </Routes>
-          <StickyFooter />
         </Box>
       </Box>
+      <StickyFooter />
     </div>
   );
   } else  {
