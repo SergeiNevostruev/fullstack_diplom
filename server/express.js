@@ -9,6 +9,9 @@ import helmet from 'helmet'
 import userRoutes from './routes/user.routes.js'
 import authRoutes from './routes/auth.routes.js'
 import postRoutes from './routes/post.routes.js'
+import { expressCspHeader, NONCE } from 'express-csp-header'
+// const { expressCspHeader, NONCE } = require('express-csp-header');
+
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -16,17 +19,17 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-
+const cspOptoin = {
+  directives: {
+      'script-src': [NONCE]
+  }
+}
 
 const CURRENT_WORKING_DIR = process.cwd()
 const app = express()
 
-var corsOptions = {
-  origin: '*',
-  credentials: true,
-  optionsSuccessStatus: 200
-}
 
+app.use(expressCspHeader(cspOptoin));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -45,7 +48,7 @@ app.use('/', postRoutes)
 if (process.env.NODE_ENV === 'production') {
   app.use('/', express.static(path.join(__dirname, './../client', 'build')))
 
-  app.get('*', (req,res) => {
+  app.get('*', expressCspHeader(cspOptoin), (req,res) => {
     res.sendFile(path.resolve(__dirname,'./../client', 'build', 'index.html'))
   })
 }

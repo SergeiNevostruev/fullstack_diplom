@@ -28,6 +28,7 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.17.2",
+    "express-csp-header": "^5.0.0",
     "express-jwt": "^6.1.0",
     "extend": "^3.0.2",
     "formidable": "^2.0.1",
