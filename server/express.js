@@ -21,6 +21,12 @@ const __dirname = dirname(__filename);
 const CURRENT_WORKING_DIR = process.cwd()
 const app = express()
 
+var corsOptions = {
+  origin: '*',
+  credentials: true,
+  optionsSuccessStatus: 200
+}
+
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
