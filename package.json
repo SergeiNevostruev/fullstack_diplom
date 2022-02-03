@@ -5,6 +5,7 @@
   "author": "Nevostruev Sergey <sergnevo@rambler.ru>",
   "license": "MIT",
   "type": "module",
+  "homepage": ".",
   "scripts": {
     "development": "nodemon",
     "dev1": "nodemon ./server/server.js",

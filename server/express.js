@@ -9,7 +9,7 @@ import helmet from 'helmet'
 import userRoutes from './routes/user.routes.js'
 import authRoutes from './routes/auth.routes.js'
 import postRoutes from './routes/post.routes.js'
-import { expressCspHeader, NONCE } from 'express-csp-header'
+import { expressCspHeader, NONCE, INLINE, SELF, NONE } from 'express-csp-header'
 // const { expressCspHeader, NONCE } = require('express-csp-header');
 
 
@@ -19,9 +19,19 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+// const cspOptoin = {
+//   directives: {
+//       'script-src': [INLINE]
+//   }
+// }
 const cspOptoin = {
   directives: {
-      'script-src': [NONCE]
+      'default-src': [SELF],
+      'script-src': [SELF, INLINE, '/'],
+      'style-src': [SELF, '/'],
+      'img-src': ['data:', '/'],
+      'worker-src': [NONE],
+      'block-all-mixed-content': true
   }
 }
 
@@ -47,8 +57,14 @@ app.use('/', postRoutes)
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/', express.static(path.join(__dirname, './../client', 'build')))
-
+  console.log(path.join(__dirname, './../client', 'build'));
+  console.log(path.resolve(__dirname,'./../client', 'build', 'index.html'))
   app.get('*', expressCspHeader(cspOptoin), (req,res) => {
+    res.writeHead(200, {
+      "Access-Control-Allow-Origin":"*",
+      // "Content-Type": "application/json",
+      "Access-Control-Allow-Credentials":"true"
+      })
     res.sendFile(path.resolve(__dirname,'./../client', 'build', 'index.html'))
   })
 }
