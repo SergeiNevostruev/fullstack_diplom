@@ -1,17 +1,8 @@
 import React, {useState, useEffect} from 'react'
-// import {useLocation, useNavigate} from 'react-router-dom'
 import { makeStyles } from '@mui/styles'
-// import Card from '@mui/material/Card'
-// import CardContent from '@mui/material/CardContent'
-// import CardMedia from '@mui/material/CardMedia'
-// import Typography from '@mui/material/Typography'
-// import unicornbikeImg from './../assets/images/unicornbike.jpg'
-import Grid from '@mui/material/Grid'
 import {authenticate, isAuthenticated, clearJWT} from './../auth/auth-helper.js'
-import FindPeople from './../user/FindPeople.js'
-import Newsfeed from './../post/Newsfeed.js'
 import {createMemoryHistory} from 'history'
-// import SignInSide from './../auth/Signin1.js'
+import MatrixRain from '../matrixrain/MatrixRain.jsx'
 
 const auth = {authenticate, isAuthenticated, clearJWT}
 
@@ -47,10 +38,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Home(){
   const history = createMemoryHistory();
-  console.log(history);
   const classes = useStyles()
-  // const location = useLocation();
-  // console.log(location);
   const [defaultPage, setDefaultPage] = useState(false)
 
   useEffect(()=> {
@@ -65,24 +53,8 @@ export default function Home(){
 
     return (
 
-      <div> Это домашняя страница
-        {/* <div>
-          { !defaultPage &&
-            <SignInSide/>
-          }
-        </div>       */}
-        {/* <div className={classes.root}>
-          {defaultPage &&
-            <Grid container spacing={8}>
-              <Grid item xs={8} sm={7}>
-                <Newsfeed/>
-              </Grid>
-              <Grid item xs={6} sm={5}>
-                <FindPeople/>
-              </Grid>
-            </Grid>
-          }
-        </div> */}
+      <div>
+        <MatrixRain/>
       </div>
     )
 }

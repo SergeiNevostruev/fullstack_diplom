@@ -9,7 +9,7 @@ import helmet from 'helmet'
 import userRoutes from './routes/user.routes.js'
 import authRoutes from './routes/auth.routes.js'
 import postRoutes from './routes/post.routes.js'
-import { expressCspHeader, NONCE, INLINE, SELF, NONE } from 'express-csp-header'
+// import { expressCspHeader, NONCE, INLINE, SELF, NONE } from 'express-csp-header'
 // const { expressCspHeader, NONCE } = require('express-csp-header');
 
 
@@ -24,22 +24,22 @@ const __dirname = dirname(__filename);
 //       'script-src': [INLINE]
 //   }
 // }
-const cspOptoin = {
-  directives: {
-      'default-src': [SELF],
-      'script-src': [SELF, INLINE, '/'],
-      'style-src': [SELF, '/'],
-      'img-src': ['data:', '/'],
-      'worker-src': [NONE],
-      'block-all-mixed-content': true
-  }
-}
+// const cspOptoin = {
+//   directives: {
+//       'default-src': [SELF],
+//       'script-src': [SELF, INLINE, '/'],
+//       'style-src': [SELF, '/'],
+//       'img-src': ['data:', '/'],
+//       'worker-src': [NONE],
+//       'block-all-mixed-content': true
+//   }
+// }
 
 const CURRENT_WORKING_DIR = process.cwd()
 const app = express()
 
 
-app.use(expressCspHeader(cspOptoin));
+// app.use(expressCspHeader(cspOptoin));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -48,7 +48,6 @@ app.use(compress())
 app.use(helmet())
 app.use(cors())
 
-// app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 
 app.use('/', authRoutes)
 app.use('/', userRoutes)
@@ -60,17 +59,10 @@ if (process.env.NODE_ENV === 'production') {
   console.log(path.join(__dirname, './../client', 'build'));
   console.log(path.resolve(__dirname,'./../client', 'build', 'index.html'))
   app.get('*', expressCspHeader(cspOptoin), (req,res) => {
-    res.writeHead(200, {
-      "Access-Control-Allow-Origin":"*",
-      // "Content-Type": "application/json",
-      "Access-Control-Allow-Credentials":"true"
-      })
     res.sendFile(path.resolve(__dirname,'./../client', 'build', 'index.html'))
   })
 }
-// app.get('/', (req, res) => {
-//     res.status(200).send(Template())
-//     })
+
 
 app.use((err, req, res, next) => {
   if (err.name === "UnauthorizedError") {

@@ -13,6 +13,12 @@
   }
 }
 
+@font-face {
+	font-family: matrixFont;
+	src: url(./matrixFont.ttf);
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
