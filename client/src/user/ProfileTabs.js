@@ -23,6 +23,7 @@ export default function ProfileTabs ( props ){
             indicatorColor="primary"
             textColor="primary"
             variant="fullWidth"
+            // orientation='vertical'
           >
             <Tab label="Посты" />
             <Tab label="Подписки" />

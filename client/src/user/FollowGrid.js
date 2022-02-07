@@ -17,7 +17,6 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    // background: theme.palette.background.paper,
   },
   bigAvatar: {
     width: 60,
@@ -25,8 +24,10 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto'
   },
   gridList: {
-    width: 500,
-    height: 220,
+    maxWidth: 500,
+    minHeight: 220,
+    width: '100%',
+    height: '100%',
   },
   tileText: {
     textAlign: 'center',
@@ -37,7 +38,7 @@ export default function FollowGrid (props) {
   const classes = useStyles()
     return (<div className={classes.root}>
 
-<ImageList rowHeight={160} className={classes.gridList} cols={4}>
+<ImageList rowHeight={160} className={classes.gridList} cols={3}>
 
     {props.people.map((person, i) => {
             return  <ImageListItem style={{'height':120}} key={i}>
