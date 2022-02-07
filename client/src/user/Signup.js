@@ -18,22 +18,24 @@ import {Link} from 'react-router-dom'
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 600,
-    margin: 'auto',
+    margin: '0',
     textAlign: 'center',
-    marginTop: theme.spacing(5),
-    paddingBottom: theme.spacing(2)
+    padding: 0
+    // marginTop: theme.spacing(5),
+    // paddingBottom: theme.spacing(2)
   },
   error: {
     verticalAlign: 'middle'
   },
   title: {
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(1),
     color: theme.palette.openTitle
   },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 300
+    width: '100%',
+    maxWidth: 300
   },
   submit: {
     margin: 'auto',
@@ -91,8 +93,8 @@ export default function Signup() {
         </CardContent>
         <CardActions
                         sx={{
-                          my: 8,
-                          mx: 4,
+                          // my: 8,
+                          // mx: 4,
                           display: 'flex',
                           flexDirection: 'column',
                           alignItems: 'center',

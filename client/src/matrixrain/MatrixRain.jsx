@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import useInterval from '@use-it/interval';
 
 // Constants
-const VALID_CHARS = `NODEJS-REACT-JAVASCRIPT-HTML-CSS-abcdefghijklmnopqrstuvwxyz0123456789$+-*/=%"'#&_(),.;:?!\\|{}<>[]^~`;
+const VALID_CHARS = `abcdefghijklmnopqrstuvwxyz0123456789$+-*/=%"'#&_(),.;:?!\\|{}<>[]^~`;
 const STREAM_MUTATION_ODDS = 0.02;
 
 const MIN_STREAM_SIZE = 10;
@@ -46,9 +46,12 @@ const RainStream = props => {
 
 	// Initialize intervalDelay
 	useEffect(() => {
-		setTimeout(() => {
+		const time = setTimeout(() => {
 			setIntervalDelay(getRandInRange(MIN_INTERVAL_DELAY, MAX_INTERVAL_DELAY));
 		}, getRandInRange(MIN_DELAY_BETWEEN_STREAMS, MAX_DELAY_BETWEEN_STREAMS));
+		return () => {
+			clearInterval(time)
+		}
 	}, []);
 
 	useInterval(() => {
@@ -103,7 +106,9 @@ const RainStream = props => {
 							index === stream.length - 1
 								? '0px 0px 20px rgba(255, 255, 255, 1)'
 								: undefined,
-					}}>
+					}}
+					key={index.toString()}
+					>
 					{char}
 				</a>
 			))}
@@ -140,8 +145,11 @@ const MatrixRain = props => {
 				justifyContent: 'center',
 			}}
 			ref={containerRef}>
-			{new Array(streamCount).fill().map(_ => (
-				<RainStream height={containerSize?.height} />
+			{new Array(streamCount).fill().map((_,i) => (
+				<RainStream 
+				height={containerSize?.height} 
+				key={i.toString()}
+				/>
 			))}
 		</div>
 	);

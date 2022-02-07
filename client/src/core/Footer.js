@@ -45,6 +45,7 @@ export default function StickyFooter() {
           py: 3,
           px: 2,
           mt: 'auto',
+          zIndex: 1200,
           backgroundColor: (theme) =>
             theme.palette.mode === 'light'
               ? theme.palette.grey[200]
@@ -55,7 +56,7 @@ export default function StickyFooter() {
           <Typography variant="body1">
             Ознакомьтесь с политикой конфедициальности.
           </Typography>
-          <Copyright />
+          <Copyright/>
         </Container>
       </Box>
     </Box>

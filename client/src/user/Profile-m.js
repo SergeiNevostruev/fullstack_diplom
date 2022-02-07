@@ -76,13 +76,6 @@ export default function Profilem() {
         setValues({...values, user: data, following: following})
         loadPosts(data._id)
 
-      // if (data && data.error) {
-      //   setRedirectToSignin(true)
-      // } else {
-      //   console.log(data);
-      //   setUser(data)
-
-
       }
     })
 

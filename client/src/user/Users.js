@@ -16,8 +16,10 @@ import { list } from "./api-user.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(1),
-    margin: theme.spacing(5),
+    maxWidth: 600,
+    margin: 'auto',
+    padding: theme.spacing(3),
+    marginTop: theme.spacing(5)
   },
   title: {
     margin: `${theme.spacing(4)}px 0 ${theme.spacing(2)}px`,
@@ -56,9 +58,10 @@ export default function Users() {
             <Link to={"/user/" + item._id} key={i}>
               <ListItem button>
                 <ListItemAvatar>
-                  <Avatar>
-                    <Person />
-                  </Avatar>
+                  <Avatar src={'/api/users/photo/'+item._id}/>
+                  {/*<Avatar>*/}
+                  {/*  <Person />*/}
+                  {/*</Avatar>*/}
                 </ListItemAvatar>
                 <ListItemText primary={item.name} />
                 <ListItemSecondaryAction>

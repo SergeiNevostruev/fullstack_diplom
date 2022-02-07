@@ -19,20 +19,21 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 600,
     margin: 'auto',
     textAlign: 'center',
-    marginTop: theme.spacing(5),
-    paddingBottom: theme.spacing(2)
+    // marginTop: theme.spacing(2),
+    // paddingBottom: theme.spacing(1)
   },
   error: {
     verticalAlign: 'middle'
   },
   title: {
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(1),
     color: theme.palette.openTitle
   },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 300
+    maxWidth: 300,
+    width: '100%'
   },
   submit: {
     margin: 'auto',
@@ -108,8 +109,8 @@ export default function Signin(props) {
         </CardContent>
         <CardActions
                         sx={{
-                          my: 8,
-                          mx: 4,
+                          // my: 8,
+                          // mx: 4,
                           display: 'flex',
                           flexDirection: 'column',
                           alignItems: 'center',

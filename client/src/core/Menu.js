@@ -188,6 +188,7 @@ const Menu = withRouter(
               </ListItemIcon>
             </Link>
             <ListItemText primary={"Домой"} />
+
           </ListItem>
 
           <ListItem button key={"Новости"} style={isActive(location, "/news")}>
@@ -231,7 +232,7 @@ const Menu = withRouter(
               <ListItemIcon>          
                   <PersonIcon style={isActive(location, "/user/home/" + auth.isAuthenticated().user._id)}/>
               </ListItemIcon>
-              </Link>                           
+              </Link>
               <ListItemText primary={'Мой профиль'} />
             </ListItem>
           )}                      

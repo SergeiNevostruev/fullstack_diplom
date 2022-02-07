@@ -44,38 +44,24 @@ function SignTabs() {
   };
 
   return (
-    <Box sx={{ width: "100%", typography: "body1" }}>
-      <TabContext value={value}>
+    <Box sx={{ width: "100%", maxWidth: 420, typography: "body1", margin: "20 15" }}>
+      <TabContext value={value} sx={{ width: "100%", maxWidth: "100hv", margin: "10 5" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs value={value} onChange={handleChange} centered>
             <Tab label="Вход" value="1" />
             <Tab label="Регистрация" value="2" />
           </Tabs>
         </Box>
-        <TabPanel value="1">
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-
+        <TabPanel value="1" sx={{ padding: 1, margin: 0 }}>
+          <Box sx={{ padding: 0, margin: 0 }}>
             <Signin />
-            <Copyright sx={{ mt: 5 }} />
+            <Copyright sx={{ mt: 2 }} />
           </Box>
         </TabPanel>
-        <TabPanel value="2">
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-
+        <TabPanel value="2" sx={{ padding: 1, margin: 0 }}>
+          <Box sx={{ padding: 1, margin: 0 }}>
             <Signup />
-            <Copyright sx={{ mt: 5 }} />
+            <Copyright sx={{ mt: 2 }} />
           </Box>
         </TabPanel>
       </TabContext>
@@ -87,7 +73,7 @@ function SignTabs() {
 export default function SignInSide() {
 
   return (
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main" sx={{ height: '100vh', maxHeight: '100vh'}}>
         <CssBaseline />
         <Grid
           item
@@ -107,8 +93,9 @@ export default function SignInSide() {
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
-              my: 8,
-              mx: 4,
+              my: 5,
+              mx: 3,
+              maxWidth: "100hv",
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
